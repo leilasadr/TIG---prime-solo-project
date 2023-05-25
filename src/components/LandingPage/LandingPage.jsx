@@ -21,7 +21,7 @@ function LandingPage() {
         <div className="grid-col grid-col_8">
 
           <p>
-            A trauma-informed experience where you can learn about your autonomic nervous system
+            A trauma-informed experience through the lense of Polyvagal Theory where you can learn about your autonomic nervous system
             and slowly but surely gain some wisdom about your patterns.  
           </p>
         </div>

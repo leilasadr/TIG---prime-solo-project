@@ -5,12 +5,12 @@ import React from 'react';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is
 
-function InfoPage() {
+function PvtDescription() {
   return (
     <div className="container">
-      <p>Info Page</p>
+      <p>This is where the user will read/learn about Polyvagal Theory.</p>
     </div>
   );
 }
 
-export default InfoPage;
+export default PvtDescription;
