@@ -32,6 +32,10 @@ function Nav() {
               What's PVT? 
             </Link>
 
+            <Link className="navLink" to="/feedback">
+              Feedback 
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}

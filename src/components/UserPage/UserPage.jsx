@@ -1,5 +1,5 @@
 import React from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
+// import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 
 function UserPage() {
@@ -8,8 +8,11 @@ function UserPage() {
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <LogOutButton className="btn" />
+      <p>Safety is the treatement.</p>
+      <p>Dr. Stephen Porges</p>
+      <p>This is where the user will see all their feedback entries.</p>
+      {/* <p>Your ID is: {user.id}</p> */}
+      {/* <LogOutButton className="btn" /> */}
     </div>
   );
 }
