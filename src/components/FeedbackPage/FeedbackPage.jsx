@@ -5,15 +5,43 @@ import { useState } from "react";
 import './FeedbackPage.css';
 
 function FeedbackPage(){
+
     // console.log(hierarchy);
-    const [value, setValue] = useState(0);
-    const MAX = 10;
+
+    const [colorValue, setColorValue] = useState(0);
+    // console.log("Slider's value:", value);
+
+    const [textValue, setTextValue] = useState('');
+    // console.log('Text value:', textValue);
+
+    const MAX = 6;
+
+    const colorMap = {
+        1: "#337909",
+        2: "#afd232",
+        3: "#eeeb3f",
+        4: "#d79645",
+        5: "#d77048",
+        6: "#d6074f",
+      };
+
     const getBackgroundSize = () => {
 	return {
-		backgroundSize: `${(value * 100) / MAX}% 100%`,
+		backgroundSize: `${(colorValue * 100) / MAX}% 100%`
 	};
     };
 
+    const getColorHexCode = (colorId) => {
+        return colorMap[colorId];
+    };
+
+    const colorHexCode = getColorHexCode(colorValue);
+
+    const handleFeedbackSubmit = (event) => {
+        event.preventDefault();
+        console.log('when submitting', event);
+    }
+ 
     return (
       <div className="container">
         <p>
@@ -36,9 +64,9 @@ function FeedbackPage(){
         type="range"
         min="0"
         max={MAX}
-        onChange={(e) => setValue(e.target.value)}
-        style={getBackgroundSize()}
-        value={value}
+        onChange={(event) => setColorValue(Number(event.target.value))}
+        style={{backgroundSize: `${(colorValue * 100) / MAX}% 100%`, backgroundColor: colorHexCode}}
+        value={colorValue}
         />
 
         <br />
@@ -48,13 +76,15 @@ function FeedbackPage(){
         name="text_feedback"
         rows="5"
         cols="30"
-        placeholder="How are you feeling today?">
+        placeholder="How are you feeling today?"
+        value={textValue}
+        onChange={(event) => setTextValue(event.target.value)}>
         </textarea>
 
         <br />
         <br />
 
-        <button>Submit</button>
+        <button onClick={handleFeedbackSubmit}>Submit</button>
 
       </div>
     )
