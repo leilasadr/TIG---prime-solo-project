@@ -1,6 +1,7 @@
 import React from 'react';
 // import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {useEffect} from 'react';
 
 function UserPage() {
   // renders some user reducer info to the DOM
@@ -9,7 +10,7 @@ function UserPage() {
   const feedback = useSelector((store) => store.feedback);
   console.log('feedback from the store:', feedback);
 
-  
+
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
