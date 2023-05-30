@@ -10,7 +10,7 @@ function FeedbackPage(){
 
     const history = useHistory();
 
-    const feedback = useSelector((store) => store.feedback);
+    const feedbacks = useSelector((store) => store.feedbacks);
 
     // console.log(hierarchy);
 

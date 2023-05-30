@@ -1,9 +1,9 @@
-const feedback = (state=[], action) =>{
+const feedbacks = (state=[], action) =>{
     switch (action.type){
-        case 'SET_FEEDBACK':
+        case 'SET_FEEDBACKS':
             return action.payload;
         default:
             return state
     }
 };
-export default feedback;
+export default feedbacks;

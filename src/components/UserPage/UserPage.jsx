@@ -4,11 +4,24 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useEffect} from 'react';
 
 function UserPage() {
+
   // renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   // renders some feedback reducer info to the DOM
-  const feedback = useSelector((store) => store.feedback);
-  console.log('feedback from the store:', feedback);
+  const feedbacks = useSelector((store) => store.feedbacks);
+  // console.log('feedback from the store:', feedback);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchFeedbacks();
+  }, [])
+
+  const fetchFeedbacks = () => {
+    dispatch({
+      type:'SAGA/FETCH_FEEDBACKS'
+    })
+  }
 
 
   return (
