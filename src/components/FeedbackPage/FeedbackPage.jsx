@@ -10,6 +10,8 @@ function FeedbackPage(){
 
     const history = useHistory();
 
+    const feedback = useSelector((store) => store.feedback);
+
     // console.log(hierarchy);
 
     const [colorValue, setColorValue] = useState(0);
