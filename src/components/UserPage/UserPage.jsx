@@ -21,6 +21,7 @@ function UserPage() {
     dispatch({
       type:'SAGA/FETCH_FEEDBACKS'
     })
+    // console.log('Updated feedbacks state:', feedbacks);
   }
 
 
@@ -34,7 +35,17 @@ function UserPage() {
       {/* <LogOutButton className="btn" /> */}
       <br />
       <br />
-      
+      <ul>
+        {feedbacks.map(feedback => {
+          return (
+            <span key={feedback.id}>
+              <p>
+                {feedback.text_feedback} on {feedback.date}
+              </p>
+            </span>
+          )
+        })}
+      </ul>
     </div>
   );
 }

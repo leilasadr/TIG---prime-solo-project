@@ -9,7 +9,7 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 router.get('/',rejectUnauthenticated, (req, res) => {
   pool.query(`SELECT * FROM "feedbacks";`)
    .then(dbRes => {
-    res.sendStatus(dbRes.rows);
+    res.send(dbRes.rows);
    }).catch(dbErr => {
     console.log('Error connecting/Getting to DB:', dbErr);
    })

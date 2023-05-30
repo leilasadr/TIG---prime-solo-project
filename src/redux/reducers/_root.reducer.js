@@ -12,7 +12,7 @@ import feedbacks from './feedbacks.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  feedbacks // will have the feedback that belongs to the specific user
+  feedbacks // reducer to store the user's feedbacks
 });
 
 export default rootReducer;
