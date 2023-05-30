@@ -13,6 +13,9 @@ function UserPage() {
       <p>This is where the user will see all their feedback entries.</p>
       {/* <p>Your ID is: {user.id}</p> */}
       {/* <LogOutButton className="btn" /> */}
+      <br />
+      <br />
+      
     </div>
   );
 }

@@ -2,9 +2,13 @@ import React from "react";
 import hierarchy from './hierarchy.jpg';
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 import './FeedbackPage.css';
 
 function FeedbackPage(){
+
+    const history = useHistory();
 
     // console.log(hierarchy);
 
@@ -39,7 +43,7 @@ function FeedbackPage(){
 
     const handleFeedbackSubmit = (event) => {
         event.preventDefault();
-        console.log('when submitting', event);
+        history.push('/user');
     }
  
     return (
