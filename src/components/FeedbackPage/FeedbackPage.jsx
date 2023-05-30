@@ -90,7 +90,7 @@ function FeedbackPage(){
         <br />
         <br />
 
-        <button onClick={handleFeedbackSubmit}>Submit</button>
+        <button className="btn" onClick={handleFeedbackSubmit}>Submit</button>
 
       </div>
     )
