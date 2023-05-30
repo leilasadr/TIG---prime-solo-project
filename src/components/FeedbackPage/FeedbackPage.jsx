@@ -1,6 +1,6 @@
 import React from "react";
 import hierarchy from './hierarchy.jpg';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -9,6 +9,7 @@ import './FeedbackPage.css';
 function FeedbackPage(){
 
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const feedbacks = useSelector((store) => store.feedbacks);
 
@@ -45,6 +46,16 @@ function FeedbackPage(){
 
     const handleFeedbackSubmit = (event) => {
         event.preventDefault();
+        dispatch({
+          type: 'SAGA/CREATE_FEEDBACK',
+          payload: {
+            colorFeedback: colorValue,
+            textFeedback: textValue
+          }
+        });
+        setColorValue(0);
+        setTextValue('');
+
         history.push('/user');
     }
  
