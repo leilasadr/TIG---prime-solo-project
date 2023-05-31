@@ -42,6 +42,8 @@ function UserPage() {
               <p>
                 {feedback.text_feedback} on {feedback.date}
               </p>
+              <button className="btn">Edit</button>
+              <button className="btn">Delete</button>
             </span>
           )
         })}

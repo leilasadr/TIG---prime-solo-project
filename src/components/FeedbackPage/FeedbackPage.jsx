@@ -72,8 +72,7 @@ function FeedbackPage(){
         <br />
         <br />
 
-        <p>What color do you resonate with today?</p>
-
+        <p>Move the slider to any color/state that you resonate with today.</p>
         <br />
 
         <input
