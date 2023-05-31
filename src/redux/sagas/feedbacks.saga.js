@@ -28,9 +28,22 @@ function* createFeedback(action) {
     }
 }
 
+function* deleteFeedback (action) {
+    try{
+        console.log('In SAGA deleteFeedback, got the request:', action.payload);
+        yield axios.delete(`/api/feedbacks/${action.payload}`)
+        yield put ({
+            type:'SAGA/FETCH_FEEDBACKS'
+        })
+    } catch {
+        console.log('Could not connect with server in deleteFeedback SAGA');
+    };
+}
+
 function* feedbacksSaga() {
     yield takeLatest('SAGA/FETCH_FEEDBACKS', fetchFeedbacks);
     yield takeLatest('SAGA/CREATE_FEEDBACK', createFeedback);
+    yield takeLatest('SAGA/DELETE_FEEDBACK', deleteFeedback);
 }
 
 export default feedbacksSaga;

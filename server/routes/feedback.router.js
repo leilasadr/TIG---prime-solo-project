@@ -39,4 +39,21 @@ router.post('/', rejectUnauthenticated, (req, res) => {
    })
 });
 
+/**
+ * DELETE route 
+ */
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  const idToDelete = req.params.id;
+  const sqlQuery = `
+  DELETE FROM "feedbacks" WHERE id = $1;
+  `
+  console.log('The idToDelete is:', idToDelete);
+  pool.query(sqlQuery, [idToDelete])
+    .then(dbRes => {
+      res.sendStatus(200)
+    }).catch(dbErr => {
+      console.log('Error connecting to DB', dbErr);
+    })
+})
+
 module.exports = router;

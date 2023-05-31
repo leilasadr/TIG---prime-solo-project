@@ -24,6 +24,13 @@ function UserPage() {
     // console.log('Updated feedbacks state:', feedbacks);
   }
 
+  const deleteFeedback = (id) => {
+    dispatch({
+      type: 'SAGA/DELETE_FEEDBACK',
+      payload: id
+    })
+  }
+
 
   return (
     <div className="container">
@@ -43,7 +50,7 @@ function UserPage() {
                 {feedback.text_feedback} on {feedback.date}
               </p>
               <button className="btn">Edit</button>
-              <button className="btn">Delete</button>
+              <button className="btn" onClick={() => deleteFeedback(feedback.id)}>Delete</button>
             </span>
           )
         })}
