@@ -54,6 +54,33 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     }).catch(dbErr => {
       console.log('Error connecting to DB', dbErr);
     })
+});
+
+/**
+ * PUT route 
+ */
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+  const newColorFeedback = req.body.colorFeedback;
+  const newTextFeedback = req.body.textFeedback;
+  const feedbackId = req.params.id;
+  const userId = req.user.id;
+
+  const sqlQuery = `
+  UPDATE "feedbacks"
+    SET "color_feedback"=$1, "text_feedback"=$2
+    WHERE "id"=$3
+      AND "user_id"=$4
+      `
+  const sqlValues = [newColorFeedback, newTextFeedback, feedbackId, userId];
+
+  pool.query(sqlQuery, sqlValues)
+   .then((dbRes) => {
+    res.sendStatus(200);
+   })
+   .catch((dbErr) => {
+    console.log('PUT /api/feedbacks/:id failed:', dbErr);
+    res.sendStatus(500);
+   })
 })
 
 module.exports = router;

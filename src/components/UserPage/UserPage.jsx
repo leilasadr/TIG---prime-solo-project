@@ -31,6 +31,10 @@ function UserPage() {
     })
   }
 
+  const editFeedback = () => {
+    
+  }
+
 
   return (
     <div className="container">
@@ -45,11 +49,11 @@ function UserPage() {
       <ul>
         {feedbacks.map(feedback => {
           return (
-            <span key={feedback.id}>
+            <span key={feedback.id}> 
               <p>
-                {feedback.text_feedback} on {feedback.date}
+                {feedback.text_feedback} on {new Date(feedback.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' })}
               </p>
-              <button className="btn">Edit</button>
+              <button className="btn" onClick={editFeedback}>Edit</button>
               <button className="btn" onClick={() => deleteFeedback(feedback.id)}>Delete</button>
             </span>
           )
