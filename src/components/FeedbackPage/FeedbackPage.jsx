@@ -24,7 +24,8 @@ function FeedbackPage(){
     const MAX = 6;
 
     const colorMap = {
-        1: "#337909",
+        0: "#337909", 
+        1: "#71a61e",
         2: "#afd232",
         3: "#eeeb3f",
         4: "#d79645",
