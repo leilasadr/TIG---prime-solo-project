@@ -34,8 +34,9 @@ function UserPage() {
     })
   }
 
-  const editFeedback = () => {
-    history.push()
+  const editFeedback = (feedback) => {
+    // console.log('the feedback id is:', feedback.id);
+    history.push(`/feedbacks/edit/${feedback.id}`);
   }
 
 
@@ -53,11 +54,11 @@ function UserPage() {
       <ul>
         {feedbacks.map(feedback => {
           return (
-            <span key={feedback.id}> 
+            <span key={feedback.id}>   
               <p>
                 {feedback.text_feedback} on {new Date(feedback.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' })}
               </p>
-              <button className="btn" onClick={editFeedback}>Edit</button>
+              <button className="btn" onClick={() => editFeedback(feedback)}>Edit</button>
               <button className="btn" onClick={() => deleteFeedback(feedback.id)}>Delete</button>
             </span>
           )

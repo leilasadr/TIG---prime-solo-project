@@ -16,6 +16,30 @@ router.get('/',rejectUnauthenticated, (req, res) => {
 });
 
 /**
+ * GET route for a specific feedback
+ */
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  const idToUpdate = req.params.id;
+  const userId = req.user.id;
+  
+  const sqlQuery = `
+  SELECT * FROM "feedbacks"
+	WHERE "id"=$1
+   AND "user_id"=$2;
+  `
+  const sqlValues = [idToUpdate, userId];
+
+  pool.query(sqlQuery, sqlValues)
+    .then((dbRes) => {
+      res.send(dbRes.rows[0])
+    })
+    .catch((dbErr) => {
+      console.log('GET /api/feedbacks/:id fail:', dbErr);
+      res.sendStatus(500);
+    })
+})
+
+/**
  * POST route 
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
@@ -60,8 +84,8 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
  * PUT route 
  */
 router.put('/:id', rejectUnauthenticated, (req, res) => {
-  const newColorFeedback = req.body.colorFeedback;
-  const newTextFeedback = req.body.textFeedback;
+  const newColorFeedback = req.body.color_feedback;
+  const newTextFeedback = req.body.text_feedback;
   const feedbackId = req.params.id;
   const userId = req.user.id;
 
