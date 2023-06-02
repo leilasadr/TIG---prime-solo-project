@@ -7,7 +7,15 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
  * GET route 
  */
 router.get('/',rejectUnauthenticated, (req, res) => {
-  pool.query(`SELECT * FROM "feedbacks";`)
+  
+  const userId = req.user.id;
+  const sqlValue = userId;
+
+  const sqlQuery = (`
+  SELECT * FROM "feedbacks"
+    WHERE "user_id"=$1;`);
+
+  pool.query(sqlQuery, [sqlValue])
    .then(dbRes => {
     res.send(dbRes.rows);
    }).catch(dbErr => {
@@ -60,6 +68,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     res.sendStatus(201)
    }).catch(dbErr => {
     console.log('Error connecting/Posting to DB:', dbErr);
+    res.sendStatus(500);
    })
 });
 
@@ -68,15 +77,19 @@ router.post('/', rejectUnauthenticated, (req, res) => {
  */
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   const idToDelete = req.params.id;
+  const userId = req.user.id;
+  const sqlValue = [idToDelete, userId]
   const sqlQuery = `
-  DELETE FROM "feedbacks" WHERE id = $1;
+  DELETE FROM "feedbacks" WHERE id = $1
+    AND "user_id"=$2;
   `
   console.log('The idToDelete is:', idToDelete);
-  pool.query(sqlQuery, [idToDelete])
+  pool.query(sqlQuery, sqlValue)
     .then(dbRes => {
       res.sendStatus(200)
     }).catch(dbErr => {
       console.log('Error connecting to DB', dbErr);
+      res.sendStatus(500);
     })
 });
 
