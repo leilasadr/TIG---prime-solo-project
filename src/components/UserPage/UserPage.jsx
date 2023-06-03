@@ -1,5 +1,4 @@
 import React from 'react';
-// import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
@@ -7,14 +6,13 @@ import { useHistory } from 'react-router-dom';
 function UserPage() {
 
   const history = useHistory();
+  const dispatch = useDispatch();
 
   // renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   // renders some feedback reducer info to the DOM
   const feedbacks = useSelector((store) => store.feedbacks);
   // console.log('feedback from the store:', feedback);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchFeedbacks();
@@ -39,6 +37,19 @@ function UserPage() {
     history.push(`/feedbacks/edit/${feedback.id}`);
   }
 
+  const colorMap = {
+    0: '#337909',
+    1: '#71a61e',
+    2: '#afd232',
+    3: '#eeeb3f',
+    4: '#d79645',
+    5: '#d77048',
+    6: '#d6074f',
+  };
+
+  const getColorHexCode = (colorId) => {
+    return colorMap[colorId];
+  };
 
   return (
     <div className="container">
@@ -47,19 +58,23 @@ function UserPage() {
         <br />
         Dr. Stephen Porges</p>
 
-      {/* <p>Your ID is: {user.id}</p> */}
-      {/* <LogOutButton className="btn" /> */}
       <br />
       <br />
+
       <ul>
         {feedbacks.map(feedback => {
           return (
-            <span key={feedback.id}>   
-              <p>
-                {feedback.text_feedback} on {new Date(feedback.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' })}
-              </p>
+            <span key={feedback.id}> 
+
+              <div className="feedbackEntry" style={{backgroundColor: getColorHexCode(feedback.color_feedback)}}> 
+                <p>
+                  {feedback.text_feedback} on {new Date(feedback.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' })}
+                </p>
+              </div>
+
               <button className="btn" onClick={() => editFeedback(feedback)}>Edit</button>
               <button className="btn" onClick={() => deleteFeedback(feedback.id)}>Delete</button>
+
             </span>
           )
         })}
