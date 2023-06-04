@@ -78,3 +78,12 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 }
+
+/* --------------------------------------------------------------------------------
+Background Picture
+-------------------------------------------------------------------------------- */
+.landingContainer {
+  background-image: url('ancona-Italy.jpg');
+  background-size: cover;
+  background-position: center;
+}

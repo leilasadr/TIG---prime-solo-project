@@ -3,6 +3,9 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.css';
+
 function UserPage() {
 
   const history = useHistory();
@@ -32,6 +35,26 @@ function UserPage() {
     })
   }
 
+  // alert to warn the user before deleting an entry
+  const showDeleteConfirmation = (feedbackId) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to delete this feedback. This action cannot be undone.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#75cfcf',
+      cancelButtonColor: '#cb75cf',
+      confirmButtonText: 'Delete',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // If the user confirms the deletion, call the deleteFeedback function
+        deleteFeedback(feedbackId);
+      }
+    });
+  };
+  
+
   const editFeedback = (feedback) => {
     // console.log('the feedback id is:', feedback.id);
     history.push(`/feedbacks/edit/${feedback.id}`);
@@ -51,6 +74,9 @@ function UserPage() {
     return colorMap[colorId];
   };
 
+  // Sort the feedbacks array based on the unique identifier (id)
+  const sortedFeedbacks = feedbacks.sort((a, b) => a.id - b.id);
+
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
@@ -62,18 +88,24 @@ function UserPage() {
       <br />
 
       <ul>
-        {feedbacks.map(feedback => {
+        {sortedFeedbacks.map(feedback => {
+
+          const backgroundColor = getColorHexCode(feedback.color_feedback);
+          const textColor = backgroundColor === '#337909' || backgroundColor === '#d6074f' ? '#ffffff' : '#000000'; 
+
           return (
             <span key={feedback.id}> 
 
-              <div className="feedbackEntry" style={{backgroundColor: getColorHexCode(feedback.color_feedback)}}> 
-                <p>
+              <div className="feedbackEntry" style={{ backgroundColor }}> 
+
+                <p style={{ color: textColor }}>
                   {feedback.text_feedback} on {new Date(feedback.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' })}
                 </p>
+
               </div>
 
               <button className="btn" onClick={() => editFeedback(feedback)}>Edit</button>
-              <button className="btn" onClick={() => deleteFeedback(feedback.id)}>Delete</button>
+              <button className="btn" onClick={() => showDeleteConfirmation(feedback.id)}>Delete</button>
 
             </span>
           )

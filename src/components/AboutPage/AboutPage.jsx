@@ -7,9 +7,17 @@ import React from 'react';
 
 function AboutPage() {
   return (
+
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <p>
+          A trauma-informed experience through the lense of Polyvagal Theory where you can learn about your autonomic nervous system
+          and slowly but surely gain some wisdom about your patterns.
+          <br />
+          <br />
+          "Trauma compromises our ability to engage with others by replacing patterns of connection
+            with patterns of protection."   Dr. Stephen Porges
+        </p>
       </div>
     </div>
   );

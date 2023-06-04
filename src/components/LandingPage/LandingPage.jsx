@@ -14,21 +14,17 @@ function LandingPage() {
   };
 
   return (
-    <div className="container">
-      <h2>{heading}</h2>
+   <div className="landingContainer">
+    <div className="container" >
+      {/* <h2>{heading}</h2> */}
 
       <div className="grid">
         <div className="grid-col grid-col_8">
 
-          <p>
-            A trauma-informed experience through the lense of Polyvagal Theory where you can learn about your autonomic nervous system
-            and slowly but surely gain some wisdom about your patterns.  
-          </p>
-
-          <p>"Trauma compromises our ability to engage with others by replacing patterns of connection
-            with patterns of protection."   Dr. Stephen Porges
-          </p>
+         
+          
         </div>
+
         <div className="grid-col grid-col_4">
           <RegisterForm />
 
@@ -41,6 +37,7 @@ function LandingPage() {
         </div>
       </div>
     </div>
+   </div>
   );
 }
 
