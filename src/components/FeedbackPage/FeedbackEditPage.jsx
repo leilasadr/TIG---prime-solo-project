@@ -73,7 +73,7 @@ function FeedbackEditPage() {
     const colorHexCode = getColorHexCode(colorValue);
 
     return (
-        <form onSubmit={finalizeFeedbackEdit}>
+        <form className="editForm" onSubmit={finalizeFeedbackEdit}>
 
             <input
             name="color_feedback"
