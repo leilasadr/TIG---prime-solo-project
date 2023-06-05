@@ -24,7 +24,7 @@ function PvtDescription() {
           <p>Sympathetic (Mobalized)</p>
           <p>Dorsal Vagal (Immobilized)</p>
 
-        <p>2- Neuroception: Threat detection without our awareness 
+        <p>2- Neuroception: Threat detection out of our awareness 
           based on our initial programming (childhood upbringing).</p>
         
         <p>3- Co-regulation: A biological imperative. Having safe humans around for co-regulation 
