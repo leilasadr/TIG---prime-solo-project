@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
@@ -6,6 +6,19 @@ import { useSelector } from 'react-redux';
 
 function Nav() {
   const user = useSelector((store) => store.user);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      
+    });
+  
+    return () => {
+      window.removeEventListener('scroll', () => {
+       
+      });
+    };
+    
+  }, []);
 
   return (
     <div className="nav">

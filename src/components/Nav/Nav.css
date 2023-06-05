@@ -7,6 +7,15 @@
   margin: 0 0 30px;
   background-color: #00acb0;
   overflow: hidden;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+body {
+  padding-top: 60px;
 }
 
 .nav a {
