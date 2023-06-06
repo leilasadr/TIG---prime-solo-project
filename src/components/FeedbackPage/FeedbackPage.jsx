@@ -4,11 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-
-import FeedbackColor from "./FeedbackColor";
 import FeedbackText from "./FeedbackText";
 
-import './FeedbackColor.css'
+import './FeedbackColor/FeedbackColor.css'
 
 function FeedbackPage() {
 
@@ -72,13 +70,12 @@ function FeedbackPage() {
       </p>
 
       <img src={hierarchy} alt="PVT hierarchy" height={500} width={400} />
-
-      <br />
-      <br />
+     
 
       <p>Move the slider to any color/state that you resonate with today.</p>
-      <br />
 
+      <br />
+     
       <div>
         <input
             name="color_feedback"
@@ -95,28 +92,18 @@ function FeedbackPage() {
       <br />
 
       <div>
-      <textarea
-        name="text_feedback"
-        rows="5"
-        cols="30"
-        placeholder="How are you feeling today?"
-        value={textValue}
-        onChange={(event) => setTextValue(event.target.value)}
-      ></textarea>
 
-      <br />
-      <br />
+      <FeedbackText
+        textValue={textValue}
+        onTextChange={(event) => setTextValue(event.target.value)}
+      />
 
       <button className="btn" onClick={handleFeedbackSubmit}>
         Submit
       </button>
 
       </div>
-
       
-
-    
-
     </div>
     
   )

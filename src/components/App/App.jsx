@@ -20,7 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import FeedbackPage from '../FeedbackPage/FeedbackPage';
-import FeedbackEditPage from '../FeedbackPage/FeedbackEditPage';
+import FeedbackEditPage from '../FeedbackPage/FeedbackEditPage/FeedbackEditPage';
 
 import './App.css';
 
