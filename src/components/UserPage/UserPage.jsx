@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 
+import FeedbackCard from './FeedbackCard.jsx'
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 
@@ -59,22 +60,7 @@ function UserPage() {
     // console.log('the feedback id is:', feedback.id);
     history.push(`/feedbacks/edit/${feedback.id}`);
   }
-
-  const colorMap = {
-    0: '#337909',
-    1: '#71a61e',
-    2: '#afd232',
-    3: '#eeeb3f',
-    4: '#d79645',
-    5: '#d77048',
-    6: '#d6074f',
-  };
-
-  const getColorHexCode = (colorId) => {
-    return colorMap[colorId];
-  };
-
-  // Sort the feedbacks array based on the unique identifier (id)
+  
   const sortedFeedbacks = feedbacks.sort((a, b) => b.id - a.id);
 
   return (
@@ -88,28 +74,14 @@ function UserPage() {
       <br />
 
       <ul>
-        {sortedFeedbacks.map(feedback => {
-
-          const backgroundColor = getColorHexCode(feedback.color_feedback);
-          const textColor = backgroundColor === '#337909' || backgroundColor === '#d6074f' ? '#ffffff' : '#000000'; 
-
-          return (
-            <span key={feedback.id}> 
-
-              <div className="feedbackEntry" style={{ backgroundColor }}> 
-
-                <p style={{ color: textColor }}>
-                  {feedback.text_feedback} on {new Date(feedback.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' })}
-                </p>
-
-              </div>
-
-              <button className="btn" onClick={() => editFeedback(feedback)}>Edit</button>
-              <button className="btn" onClick={() => showDeleteConfirmation(feedback.id)}>Delete</button>
-
-            </span>
-          )
-        })}
+        {sortedFeedbacks.map((feedback) => (
+          <FeedbackCard
+            key={feedback.id}
+            feedback={feedback}
+            onDelete={showDeleteConfirmation}
+            onEdit={editFeedback}
+          />
+        ))}
       </ul>
     </div>
   );

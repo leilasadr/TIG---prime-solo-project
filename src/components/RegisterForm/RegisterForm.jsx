@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Box, Button, TextField, Typography } from '@mui/material';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -17,44 +18,47 @@ function RegisterForm() {
         password: password,
       },
     });
-  }; // end registerUser
+  };
 
   return (
-    <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      sx={{ maxWidth: '300px', margin: '0 auto' }}
+    >
+      <Typography variant="h3">
+        Create Account
+      </Typography>
       {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
+        <Typography variant="subtitle2" color="error" sx={{ mb: 2 }}>
           {errors.registrationMessage}
-        </h3>
+        </Typography>
       )}
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
-      </div>
-    </form>
+      <Box component="form" onSubmit={registerUser} sx={{ width: '100%' }}>
+        <TextField
+          label="Username"
+          type="text"
+          name="username"
+          value={username}
+          required
+          onChange={(event) => setUsername(event.target.value)}
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          name="password"
+          value={password}
+          required
+          onChange={(event) => setPassword(event.target.value)}
+          sx={{ mb: 2 }}
+        />
+        <Button variant="contained" type="submit" sx={{ mb: 2 }}>
+          Register
+        </Button>
+      </Box>
+    </Box>
   );
 }
 

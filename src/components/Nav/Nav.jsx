@@ -1,63 +1,85 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
 import { useSelector } from 'react-redux';
 
 function Nav() {
   const user = useSelector((store) => store.user);
 
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      
-    });
-  
-    return () => {
-      window.removeEventListener('scroll', () => {
-       
-      });
-    };
-    
-  }, []);
-
   return (
-    <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Trauma Informed Growth</h2>
-      </Link>
-      <div>
-        {/* If no user is logged in, show these links */}
-        {!user.id && (
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        )}
+    <AppBar position="fixed">
+      <Toolbar>
+        <Typography variant="h6" component={Link} to="/home" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none'  }}>
+          Trauma Informed Growth
+        </Typography>
+        <Box display="flex">
+          {/* If no user is logged in, show these links */}
+          {!user.id && (
+            // If there's no user, show login/registration links
+            <>
+              <Button component={Link} to="/login" color="inherit" sx={{ mr: 1 }}>
+                Login
+              </Button>
+              {/* <Button component={Link} to="/register" color="inherit">
+                Register
+              </Button> */}
+            </>
+          )}
 
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <>
-            <Link className="navLink" to="/user">
+          {/* If a user is logged in, show these links */}
+          {user.id && (
+            <>
+              <Button component={Link} to="/user" color="inherit"  
+              sx={{
+              color: 'black',
+              '&:hover': {
+                backgroundColor: 'antiquewhite',
+              },
+              }}
+              >
               Home
-            </Link>
+              </Button>
 
-            <Link className="navLink" to="/PVT">
-              What's PVT? 
-            </Link>
+              <Button component={Link} to="/PVT" color="inherit" 
+              sx={{
+                color: 'black',
+                '&:hover': {
+                  backgroundColor: 'antiquewhite',
+                },
+                }}
+              >
+              What's PVT?
+              </Button>
 
-            <Link className="navLink" to="/feedback">
-              Feedback 
-            </Link>
+              <Button component={Link} to="/feedback" color="inherit" 
+              sx={{
+                color: 'black',
+                '&:hover': {
+                  backgroundColor: 'antiquewhite',
+                },
+                }}
+              >
+              Feedback
+              </Button>
 
-            <LogOutButton className="navLink" />
-          </>
-        )}
+              <LogOutButton />
+            </>
+          )}
 
-        <Link className="navLink" to="/about">
+          <Button component={Link} to="/about" color="inherit"
+          sx={{
+            color: 'black',
+            '&:hover': {
+              backgroundColor: 'antiquewhite',
+            },
+            }}
+          >
           About
-        </Link>
-      </div>
-    </div>
+          </Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 }
 
