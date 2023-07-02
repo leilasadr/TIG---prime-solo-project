@@ -56,11 +56,13 @@ function FeedbackPage() {
         body?
         </p>
 
+      <Box sx={{ width: 350, mt: 1 }}>
       <img src={hierarchy} alt="PVT hierarchy" height={500} width={400} />
+      </Box>
 
       <p>Move the slider to any color/state that you resonate with today.</p>
 
-      <Box sx={{ width: 300, mt: 4 }}>
+      <Box sx={{ width: 350, mt: 1 }}>
         <Slider
           name="color_feedback"
           min={0}
@@ -73,7 +75,7 @@ function FeedbackPage() {
         />
       </Box>
 
-      <Box mt={4}>
+      <Box mt={1}>
         <FeedbackText
           textValue={textValue}
           onTextChange={(event) => setTextValue(event.target.value)}

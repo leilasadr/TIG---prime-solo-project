@@ -3,6 +3,10 @@ import {useParams, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { useState } from 'react';
 
+import { Button, ButtonGroup, Slider, Box, Container } from '@mui/material';
+
+// import FeedbackText from './FeedbackText';
+
 import './FeedbackEditPage.css'
 
 function FeedbackEditPage() {
@@ -45,6 +49,11 @@ function FeedbackEditPage() {
         })
         history.push('/user');
     }
+
+    const handleCancel = () => {
+        history.push('/user');
+      };
+
     // The slider's color logic
     const [colorValue, setColorValue] = useState(feedbackToEdit.color_feedback);
 
@@ -73,7 +82,7 @@ function FeedbackEditPage() {
     const colorHexCode = getColorHexCode(colorValue);
 
     return (
-        <form className="editForm" onSubmit={finalizeFeedbackEdit}>
+        <Container className="editForm">
 
             <input
             name="color_feedback"
@@ -99,10 +108,11 @@ function FeedbackEditPage() {
 
             <br />
             <br />
-
-            <button className="btn" type="submit">Finalize Edit</button>
-
-        </form>
+            <ButtonGroup>
+            <Button onClick={finalizeFeedbackEdit}>Finalize Edit</Button>
+            <Button onClick={handleCancel}>Cancel</Button>
+            </ButtonGroup>
+            </Container>
     )
 }
 
