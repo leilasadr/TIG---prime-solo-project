@@ -55,7 +55,7 @@ function RegisterForm() {
           sx={{ mb: 2 }}
         />
         <Button variant="contained" type="submit" sx={{ mb: 2 }}>
-          Register
+          Create Account
         </Button>
       </Box>
     </Box>
