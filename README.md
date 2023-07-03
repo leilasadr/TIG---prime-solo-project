@@ -73,7 +73,7 @@ http://localhost:3000
 
 ## Acknowledgements
 
-A massive thank you to my instructors Matt Black and Andrew Harasymiw for their compassion and patience and also to the entire Prime staff for their support. A huge thank you to my cohort mates for their hard work and collaboration, and lastly my brother for supporting me along this new journey and transition. 
+A massive thank you to my instructors Matt Black and Andrew Harasymiw for their compassion and patience and also to the entire [Prime Digital Academy](www.primeacademy.io) staff for their support. A huge thank you to my cohort mates for their hard work and collaboration, and lastly my brother for supporting me along this new journey and transition. 
 
 ## Contacts
 
