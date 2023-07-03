@@ -16,3 +16,7 @@ CREATE TABLE "feedbacks" (
 	"date" TIMESTAMPTZ NOT NULL DEFAULT now(),
 	"user_id" INT REFERENCES "user"
 );
+
+INSERT INTO "feedbacks" ("color_feedback", "text_feedback", "user_id")
+VALUES (2, 'Great!', 1);
+
