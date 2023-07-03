@@ -25,6 +25,9 @@ the user is able to learn about the Polyvagal theory, check-in as often as they 
 
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" height="40px" width="40px" /></a><a href="https://material-ui.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg" height="40px" width="40px" /></a><a href="https://nodejs.org/en/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" height="40px" width="40px" /></a><a href="https://www.postgresql.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" height="40px" width="40px" /></a><a href="https://reactjs.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" height="40px" width="40px" /></a><a href="https://redux.js.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" height="40px" width="40px" /></a>
 [![Redux](https://img.shields.io/badge/Redux--Sagas-20232A?style=for-the-badge&logo=reduxsaga&logoColor=61DAFB)]()
+[![Passport](https://img.shields.io/badge/Passport.js-20232A?style=for-the-badge)]()
+[![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)]()
+
 
 
 ## Getting Started
