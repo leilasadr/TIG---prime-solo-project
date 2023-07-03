@@ -19,7 +19,9 @@
 
 the user is able to learn about the Polyvagal theory, check-in as often as they see fit to submit entries about how they are feeling at that moment through the lens of Polyvagal theory, and take stock after a while of submitting these entries to learn about their specific autonomic nervous system patterns. This is very empowering for the user because this knowledge could lead to taking actions for the betterment of their overall health in the specific way that works for their nervous system.
 
-## Screenshots
+## Demo
+
+![Alt Text](recordbin.gif)
 
 <img src="" />## Built With
 
