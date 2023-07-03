@@ -23,7 +23,7 @@ function AboutPage() {
           I experienced transformation bit by bit as I implemented the principles of polyvagal theory in my life, and I would love to share this information with as many humans as possible.
           <br />
           <br />
-          At this stage of the app, the user is able to learn about the theory, check-in as often as they see fit to submit entries about how they are feeling at that moment through the lense of polyvagal theory,
+          At this stage of the app, the user is able to learn about the theory, check-in as often as they see fit to submit entries about how they are feeling at that moment through the lens of polyvagal theory,
           and take stock after a while of submitting these entries to learn about their specific autonomic nervous system patterns. This is very empowering for the user because this knowledge 
           could lead to taking actions for the betterment of their overall health in a specific way that is unique to them.
           <br />
