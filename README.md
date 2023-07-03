@@ -35,6 +35,7 @@ the user is able to learn about the Polyvagal theory, check-in as often as they 
 ## Getting Started
 
 This project should be able to run in your favorite IDE. I used VS code while building it.
+<a href="https://code.visualstudio.com/"><img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original-wordmark.svg" height="40px" width="40px" /></a>
 
 ### Prerequisites
 
