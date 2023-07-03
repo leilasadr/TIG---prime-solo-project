@@ -21,7 +21,7 @@ the user is able to learn about the Polyvagal theory, check-in as often as they 
 
 ## Demo
 
-![Alt Text](recordbin.gif)
+![Alt Text](TIG.gif)
 
 <img src="" />## Built With
 
