@@ -2,6 +2,12 @@ import {useEffect} from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { useState } from 'react';
+import hierarchy from '../hierarchy.jpg';
+
+
+import { Button, ButtonGroup, Slider, Box, Container } from '@mui/material';
+
+import FeedbackText from '../FeedbackText';
 
 import './FeedbackEditPage.css'
 
@@ -45,6 +51,11 @@ function FeedbackEditPage() {
         })
         history.push('/user');
     }
+
+    const handleCancel = () => {
+        history.push('/user');
+      };
+
     // The slider's color logic
     const [colorValue, setColorValue] = useState(feedbackToEdit.color_feedback);
 
@@ -60,49 +71,55 @@ function FeedbackEditPage() {
         6: "#d6074f",
       };
 
-    const getBackgroundSize = () => {
-	return {
-		backgroundSize: `${(colorValue * 100) / MAX}% 100%`
-	};
-    };
-
-    const getColorHexCode = (colorId) => {
-        return colorMap[colorId];
-    };
-
-    const colorHexCode = getColorHexCode(colorValue);
+      const getBackgroundStyle = () => {
+        const colorPercentage = (colorValue * 100) / MAX;
+        const colorHexCode = colorMap[colorValue];
+        return {
+          backgroundImage: `linear-gradient(to right, ${colorHexCode} 0%, ${colorHexCode} ${(colorValue * 100) / MAX}%, transparent ${(colorValue * 100) / MAX}%, transparent 100%)`
+        };
+      };
 
     return (
-        <form className="editForm" onSubmit={finalizeFeedbackEdit}>
+        <Container className="editForm">
 
-            <input
-            name="color_feedback"
-             type='range'
-             min="0"
-            max={MAX}
-             value={feedbackToEdit.color_feedback}
-             onChange={handleUserColorChange}
-             style={{backgroundSize: getBackgroundSize(), backgroundColor: colorHexCode}}
-            />
+        <p>
+        As you get ready to reflect on where you are today, I invite you to get still, close your eyes, and focus your
+        attention inward. What's the loudest sensation right this moment? Which color could it be? Where is it in the
+        body?
+        </p>
 
-            <br />
-            <br />
+        <Box sx={{ width: 350, mt: 1 }}>
+        <img src={hierarchy} alt="PVT hierarchy" height={500} width={400} />
+        </Box>
 
-            <textarea
-            name="text_feedback"
-            rows="5"
-            cols="30"
-            value={feedbackToEdit.text_feedback}
-            onChange={handleUserTextChange}
-            >
-            </textarea>
+        <p>Move the slider to any color/state that you resonate with today.</p>
+            
+        <Box sx={{ width: 350, mt: 1 }}>
+        <Slider
+        name="color_feedback"
+        min={0}
+        max={MAX}
+        value={feedbackToEdit.color_feedback}
+        onChange={handleUserColorChange}
+        style={getBackgroundStyle()}        />
+        </Box>
 
-            <br />
-            <br />
+        <br />
+        <br />
 
-            <button className="btn" type="submit">Finalize Edit</button>
+        <Box mt={1}>
+        <FeedbackText
+        textValue={feedbackToEdit.text_feedback}
+        onTextChange={handleUserTextChange}
+        />
+        </Box>
 
-        </form>
+        
+        <ButtonGroup>
+        <Button onClick={finalizeFeedbackEdit}>Finalize Edit</Button>
+        <Button onClick={handleCancel}>Cancel</Button>
+        </ButtonGroup>
+        </Container>
     )
 }
 
