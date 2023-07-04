@@ -1,4 +1,4 @@
- ![Repo Size](https://img.shields.io/github/languages/code-size/leilasadr/prime-solo-project.svg?style=for-the-badge) ![TOP_LANGUAGE]
+ ![Repo Size](https://img.shields.io/github/languages/code-size/leilasadr/prime-solo-project.svg?style=for-the-badge)
     
 # Trauma Informed Growth - Prime Solo App
 
