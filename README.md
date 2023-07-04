@@ -1,5 +1,5 @@
- ![Repo Size](https://img.shields.io/github/languages/code-size/leilasadr/prime-solo-project.svg?style=for-the-badge)
-    
+ ![License](https://img.shields.io/github/license/johnturner4004/readme-generator.svg?style=for-the-badge) ![Repo Size](https://img.shields.io/github/languages/code-size/johnturner4004/readme-generator.svg?style=for-the-badge) ![TOP_LANGUAGE](https://img.shields.io/github/languages/top/johnturner4004/readme-generator.svg?style=for-the-badge) ![FORKS]
+ 
 # Trauma Informed Growth - Prime Solo App
 
 ## Table of Contents
