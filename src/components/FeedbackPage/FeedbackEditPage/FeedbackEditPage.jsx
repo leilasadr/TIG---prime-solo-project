@@ -75,7 +75,7 @@ function FeedbackEditPage() {
         const colorPercentage = (colorValue * 100) / MAX;
         const colorHexCode = colorMap[colorValue];
         return {
-          backgroundImage: `linear-gradient(to right, ${colorHexCode} 0%, ${colorHexCode} ${(colorValue * 100) / MAX}%, transparent ${(colorValue * 100) / MAX}%, transparent 100%)`
+          backgroundImage: `linear-gradient(to right, ${colorHexCode} 0%, ${colorHexCode} ${colorPercentage}%, transparent ${colorPercentage}%, transparent 100%)`
         };
       };
 
