@@ -13,7 +13,7 @@ function FeedbackPage() {
   const dispatch = useDispatch();
 
   const [textValue, setTextValue] = useState('');
-  const [colorValue, setColorValue] = useState(0);
+  const [colorValue, setColorValue] = useState();
 
   const MAX = 6;
 
