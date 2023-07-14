@@ -1,7 +1,6 @@
-import {useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import { useState } from 'react';
 import hierarchy from '../hierarchy.jpg';
 
 
@@ -13,33 +12,42 @@ import './FeedbackEditPage.css'
 
 function FeedbackEditPage() {
 
-    const params = useParams();
+    // const params = useParams();
+    const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
 
     const feedbackToEdit = useSelector(store => store.feedbackToEdit);
 
+    const [colorValue, setColorValue] = useState(feedbackToEdit.color_feedback);
+    const [textValue, setTextValue] = useState(feedbackToEdit.text_feedback);
+
     useEffect(() => {
-      const idToEdit = params.id;
+      // const idToEdit = params.id;
     //   console.log('idToEdit:', idToEdit);
       dispatch({
         type: 'SAGA/FETCH_FEEDBACK_TO_EDIT',
-        payload: idToEdit
+        payload: id
       })
     }, [])
 
-    const handleUserColorChange = (event) => {
-        dispatch({
-            type: 'MODIFY_COLOR',
-            payload: Number(event.target.value)
-        })
-    }
+    useEffect(() => {
+      setColorValue(feedbackToEdit.color_feedback);
+    }, [feedbackToEdit]);
+
+    // const handleUserColorChange = (event) => {
+    //     dispatch({
+    //         type: 'MODIFY_COLOR',
+    //         payload: Number(event.target.value)
+    //     })
+    // }
 
     const handleUserTextChange = (event) => {
         dispatch({
             type: 'MODIFY_TEXT',
             payload: event.target.value
         })
+        setTextValue(event.target.value);
     }
 
     const finalizeFeedbackEdit = (event) => {
@@ -47,7 +55,11 @@ function FeedbackEditPage() {
 
         dispatch({
             type: 'SAGA/FINALIZE_FEEDBACK_EDIT',
-            payload: feedbackToEdit
+            payload: {
+              id,
+              color_feedback: colorValue,
+              text_feedback: textValue
+            },
         })
         history.push('/user');
     }
@@ -57,27 +69,49 @@ function FeedbackEditPage() {
       };
 
     // The slider's color logic
-    const [colorValue, setColorValue] = useState(feedbackToEdit.color_feedback);
 
-    const MAX = 6;
+    const getColorHexCode  = (colorId) => {
+      const colorMap = {
+            0: "#337909", 
+            1: "#71a61e",
+            2: "#afd232",
+            3: "#eeeb3f",
+            4: "#d79645",
+            5: "#d77048",
+            6: "#d6074f",
+          };
+      return colorMap[colorId];
+    };
 
-    const colorMap = {
-        0: "#337909", 
-        1: "#71a61e",
-        2: "#afd232",
-        3: "#eeeb3f",
-        4: "#d79645",
-        5: "#d77048",
-        6: "#d6074f",
-      };
+    const getBackgroundStyle = () => {
+      const MAX = 6;
+      const colorHexCode = getColorHexCode(colorValue);
+      const colorPercentage = (colorValue * 100) / MAX;
 
-      const getBackgroundStyle = () => {
-        const colorPercentage = (colorValue * 100) / MAX;
-        const colorHexCode = colorMap[colorValue];
-        return {
-          backgroundImage: `linear-gradient(to right, ${colorHexCode} 0%, ${colorHexCode} ${colorPercentage}%, transparent ${colorPercentage}%, transparent 100%)`
-        };
-      };
+      return {
+        backgroundImage: `linear-gradient(to right, ${colorHexCode} 0%, ${colorHexCode} ${colorPercentage}%, transparent ${colorPercentage}%, transparent 100%)`
+      }
+    }
+
+    // const MAX = 6;
+
+    // const colorMap = {
+    //     0: "#337909", 
+    //     1: "#71a61e",
+    //     2: "#afd232",
+    //     3: "#eeeb3f",
+    //     4: "#d79645",
+    //     5: "#d77048",
+    //     6: "#d6074f",
+    //   };
+
+    //   const getBackgroundStyle = () => {
+    //     const colorPercentage = (colorValue * 100) / MAX;
+    //     const colorHexCode = colorMap[colorValue];
+    //     return {
+    //       backgroundImage: `linear-gradient(to right, ${colorHexCode} 0%, ${colorHexCode} ${colorPercentage}%, transparent ${colorPercentage}%, transparent 100%)`
+    //     };
+    //   };
 
     return (
         <Container className="editForm">
@@ -98,10 +132,10 @@ function FeedbackEditPage() {
         <Slider
         name="color_feedback"
         min={0}
-        max={MAX}
-        value={feedbackToEdit.color_feedback}
-        onChange={handleUserColorChange}
-        style={getBackgroundStyle()}        />
+        max={6}
+        value={colorValue}
+        onChange={(event, newValue) => setColorValue(newValue)}
+        style={getBackgroundStyle()} />
         </Box>
 
         <br />
