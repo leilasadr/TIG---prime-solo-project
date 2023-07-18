@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Paper, Box } from '@mui/material';
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -7,7 +8,8 @@ import React from 'react';
 
 function PvtDescription() {
   return (
-    <div className="container">
+    <Container maxWidth="md" sx={{ mt: 2 }}>
+      <Paper sx={{ p: 2 }}>
       <p>Polyvagal Theory (PVT) is the science of safety and conection developed by Dr. Stephen Porges.
         A framework that helps us understand the role of the autonomic nervous system (ANS) 
         in our somatic, emotional, and behavioral responses to stressors and triggers.
@@ -29,13 +31,14 @@ function PvtDescription() {
         
         <p>3- Co-regulation: A biological imperative. Having safe humans around for co-regulation 
           immensely influences the quality of our self-regulation for the better.</p>
-
+      <Box sx={{ mt: 2, position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/uH5JQDAqA8E" 
       title="YouTube video player" frameBorder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen>
       </iframe>
-
-    </div>
+      </Box>
+      </Paper>
+    </Container>
   );
 }
 
