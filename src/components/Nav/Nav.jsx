@@ -8,10 +8,10 @@ function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" style={{ top: 'auto', bottom: 0}}>
       <Toolbar>
         <Typography variant="h6" component={Link} to="/home" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none'  }}>
-          Trauma Informed Growth
+          TIG
         </Typography>
         <Box display="flex">
           {/* If no user is logged in, show these links */}
@@ -49,7 +49,7 @@ function Nav() {
                 },
                 }}
               >
-              What's PVT?
+              PVT?
               </Button>
 
               <Button component={Link} to="/feedback" color="inherit" 
@@ -60,7 +60,7 @@ function Nav() {
                 },
                 }}
               >
-              Feedback
+              Track
               </Button>
 
               <LogOutButton />
