@@ -10,8 +10,9 @@ function AboutPage() {
 
     <div className="container">
       <div>
+        <h2> Welcome to Trauma Informed Growth! </h2>
         <p>
-          Welcome to Trauma Informed Growth! An autonomic nervous system tracker app through the lense of Polyvagal Theory where you can slowly but surely gain some wisdom and awareness about your unconscious patterns.
+         An autonomic nervous system tracker app through the lense of Polyvagal Theory where you can slowly but surely gain some wisdom and awareness about your unconscious patterns.
           <br />
           <br />
           I first learned about Polyvagal Theory about a year and a half ago as I was looking for answeres of why talk therapy or cognitive behavioral therapy does not work for me.
