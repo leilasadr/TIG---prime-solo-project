@@ -11,8 +11,6 @@ import FeedbackText from '../FeedbackText';
 import './FeedbackEditPage.css'
 
 function FeedbackEditPage() {
-
-    // const params = useParams();
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -69,7 +67,6 @@ function FeedbackEditPage() {
       };
 
     // The slider's color logic
-
     const getColorHexCode  = (colorId) => {
       const colorMap = {
             0: "#337909", 
