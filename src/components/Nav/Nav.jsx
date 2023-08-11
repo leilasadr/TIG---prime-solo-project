@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import LogOutButton from '../LogOutButton/LogOutButton';
 
-
 function Nav() {
   const user = useSelector((store) => store.user);
 

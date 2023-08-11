@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom';
 
 import { Button } from '@mui/material';
 
-
-
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
