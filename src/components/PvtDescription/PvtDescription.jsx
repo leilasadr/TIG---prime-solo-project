@@ -12,7 +12,7 @@ function PvtDescription() {
       <Paper sx={{ p: 2 }}>
       <p>Polyvagal Theory (PVT) is the science of safety and conection developed by Dr. Stephen Porges.
         A framework that helps us understand the role of the autonomic nervous system (ANS) 
-        in our somatic, emotional, and behavioral responses to stressors and triggers.
+        in our somatic, emotional, and behavioral responses to glimmers and triggers.
         It is a guide that helps us bring our ANS on board
         as an ally to help us heal, grow, and reach our next level!</p>
 

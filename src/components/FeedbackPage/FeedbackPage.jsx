@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Slider, Box, Container } from '@mui/material';
+
 import hierarchy from './hierarchy.jpg';
 
 import FeedbackText from './FeedbackText';
