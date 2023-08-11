@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Button } from '@mui/material';
 
 
-// CUSTOM COMPONENTS
+
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
