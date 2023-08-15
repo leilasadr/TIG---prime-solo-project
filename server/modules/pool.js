@@ -14,6 +14,7 @@ let pool;
 // eg: 
 //  DATABASE_URL=postgresql://jDoe354:secretPw123@some.db.com/prime_app
 if (process.env.DATABASE_URL) {
+    console.log('Database URL was found!');
     pool = new pg.Pool({
         connectionString: process.env.DATABASE_URL,
         ssl: {
@@ -25,6 +26,7 @@ if (process.env.DATABASE_URL) {
 // we'll connect to the postgres database that is 
 // also running on our computer (localhost)
 else {
+    console.log('Database URL was not found!!');
     pool = new pg.Pool({
         host: 'localhost',
         port: 5432,
