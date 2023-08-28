@@ -1,7 +1,9 @@
 import {useState, useEffect} from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
+
 import hierarchy from '../hierarchy.jpg';
+import PVI from '../PVI.jpg'
 
 
 import { Button, ButtonGroup, Slider, Box, Container } from '@mui/material';
@@ -121,6 +123,10 @@ function FeedbackEditPage() {
 
         <Box sx={{ width: 350, mt: 1 }}>
         <img src={hierarchy} alt="PVT hierarchy" height={500} width={400} />
+        </Box>
+
+        <Box sx={{ width: 350, mt: 1 }}>
+        <img src={PVI} alt="PVI" height={500} width={400} />
         </Box>
 
         <p>Move the slider to any color/state that you resonate with today.</p>
